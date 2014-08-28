@@ -79,11 +79,11 @@ function spritz(){
         spritzifyURL();
     }
 }
-function parse(input){
+function parse(input,width,height){
       var words = input.split(/\s+/);
       var id = 0;
       while (id<words.length){
-           while (id+1<words.length && words[id].length + words[id+1].length + 1 < 10) {
+           while (id+1<words.length && words[id].length + words[id+1].length + 1 < width) {
                 words.splice(id,2,words[id] + ' ' + words[id+1]);
            }
            id++;
@@ -93,11 +93,14 @@ function parse(input){
 // The meat!
 function spritzify(input){
 
+    
+    var width = parseInt(document.getElementById("width_selector").value, 10);
+    var height = parseInt(document.getElementById("height_selector").value, 10);
     var wpm = parseInt(document.getElementById("spritz_selector").value, 10);
     var ms_per_word = 60000/wpm;
 
     // Split on any spaces.
-    var all_words = parse(input);
+    var all_words = parse(input,width,height);
 
     // The reader won't stop if the selection starts or ends with spaces
     if (all_words[0] == "")
