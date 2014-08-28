@@ -84,7 +84,7 @@ function parse(input,width,height){
       var id = 0;
       while (id<words.length){
            while (id+1<words.length && words[id].length + words[id+1].length + 1 < width) {
-                words.splice(id,2,words[id] + ' ' + words[id+1]);
+                words.splice(id,2,words[id] + '\xA0' + words[id+1]);
            }
            id++;
       }
