@@ -79,7 +79,9 @@ function spritz(){
         spritzifyURL();
     }
 }
-
+function parse(input){
+     var all_words = input.split(/\s+/);
+}
 // The meat!
 function spritzify(input){
 
@@ -87,7 +89,7 @@ function spritzify(input){
     var ms_per_word = 60000/wpm;
 
     // Split on any spaces.
-    var all_words = input.split(/\s+/);
+    var all_words = parse(input);
 
     // The reader won't stop if the selection starts or ends with spaces
     if (all_words[0] == "")
@@ -112,6 +114,7 @@ function spritzify(input){
         if(all_words[i].indexOf('.') != -1){
             temp_words[t] = all_words[i].replace('.', '&#8226;');
         }
+        
 
         // Double up on long words and words with commas.
         if((all_words[i].indexOf(',') != -1 || all_words[i].indexOf(':') != -1 || all_words[i].indexOf('-') != -1 || all_words[i].indexOf('(') != -1|| all_words[i].length > 8) && all_words[i].indexOf('.') == -1){
