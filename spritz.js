@@ -80,7 +80,15 @@ function spritz(){
     }
 }
 function parse(input){
-     return input.split(/\s+/);
+      var words = input.split(/\s+/);
+      var id = 0;
+      while (id<words.length){
+           while (id+1<words.length && words[id].length + words[id+1].length + 1 < 10) {
+                words.splice(id,2,words[id] + ' ' + words[id+1]);
+           }
+           id++;
+      }
+      return words;
 }
 // The meat!
 function spritzify(input){
