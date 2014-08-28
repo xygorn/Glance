@@ -80,7 +80,7 @@ function spritz(){
     }
 }
 function parse(input){
-     var all_words = input.split(/\s+/);
+     return input.split(/\s+/);
 }
 // The meat!
 function spritzify(input){
