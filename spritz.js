@@ -23,6 +23,13 @@ function create_spritz(){
         // RawGit's CDN usage:
         // "Since files are not refreshed after the first request,
         // it's best to use a specific tag or commit URL, not a branch URL."
+        var js = document.createElement('script');js.src = 'https://rawgit.com/bramstein/typeset/master/src/linked-list.js';var first = document.getElementsByTagName('script')[0];first.parentNode.insertBefore(js, first);
+        var js = document.createElement('script');js.src = 'https://rawgit.com/bramstein/typeset/master/src/linebreak.js';var first = document.getElementsByTagName('script')[0];first.parentNode.insertBefore(js, first);
+        var js = document.createElement('script');js.src = 'https://rawgit.com/bramstein/typeset/master/lib/hypher.js';var first = document.getElementsByTagName('script')[0];first.parentNode.insertBefore(js, first);
+        var js = document.createElement('script');js.src = 'https://rawgit.com/bramstein/typeset/master/lib/en-us.js';var first = document.getElementsByTagName('script')[0];first.parentNode.insertBefore(js, first);
+        var js = document.createElement('script');js.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js';var first = document.getElementsByTagName('script')[0];first.parentNode.insertBefore(js, first);
+        var js = document.createElement('script');js.src = 'https://rawgit.com/bramstein/typeset/master/src/formatter.js';var first = document.getElementsByTagName('script')[0];first.parentNode.insertBefore(js, first);
+
         getURL("https://rawgit.com/xygorn/Glance/master/spritz.html", function(data){
             var spritzContainer = document.getElementById("spritz_container");
 
