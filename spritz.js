@@ -90,8 +90,13 @@ function spritz(){
 function parse(input,width,height){
      var f = Typeset.formatter(function (text) {return text.length;});
      var nodes=f.justify(input);
-     var breaks = Typeset.linebreak(nodes, [width], {tolerance: 2})
-     var words = input.split(/\s+/);
+     var breaks = Typeset.linebreak(nodes, [width], {tolerance: 2});
+     var i,wordsAr=[];
+     for (i=0;i<breaks.length-1; i++) {
+          wordsAr.append(nodes.slice(breaks[i].position,breaks[i+1].position));
+     }
+     wordsAr.append(nodes.slice(breaks[i].position,nodes.length));
+      var words = input.split(/\s+/);
       var id = 0;
       while (id<words.length){
            while (id+1<words.length && words[id].length + words[id+1].length + 1 < width) {
