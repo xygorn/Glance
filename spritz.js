@@ -160,6 +160,7 @@ function spritzify(input){
 
     function startSpritz() {
 
+        var height = parseInt(document.getElementById("height_selector").value, 10);
         document.getElementById("spritz_toggle").style.display = "block";
         document.getElementById("spritz_toggle").textContent = "Pause";
 
@@ -167,7 +168,7 @@ function spritzify(input){
 
         spritz_timers.push(setInterval(function() {
             updateValues(currentWord);
-            currentWord++;
+            currentWord+=height;
             if(currentWord >= all_words.length) {
                 currentWord = 0;
                 stopSpritz();
