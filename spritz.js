@@ -80,7 +80,7 @@ function spritz(){
     }
 }
 function parse(input,width,height){
-     var f = Typeset.formatter(function (text) return text.length})
+     var f = Typeset.formatter(function (text) text.length;})
       var words = input.split(/\s+/);
       var id = 0;
       while (id<words.length){
