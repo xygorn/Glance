@@ -27,7 +27,7 @@ body{
 #spritz_container{
     background-color: #ffffff;
     /* 600px+; small tablet portrait */
-    width: 420px;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
     line-height: 43px;
