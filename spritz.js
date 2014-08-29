@@ -95,7 +95,7 @@ function parse(input,width,height){
      for (i=0;i<breaks.length-1; i++) {
           wordsAr.push(nodes.slice(breaks[i].position,breaks[i+1].position));
      }
-     wordsAr.append(nodes.slice(breaks[i].position,nodes.length));
+     wordsAr.push(nodes.slice(breaks[i].position,nodes.length));
       var words = input.split(/\s+/);
       var id = 0;
       while (id<words.length){
