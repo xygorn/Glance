@@ -89,8 +89,9 @@ function spritz(){
 }
 function parse(input,width,height){
      var f = Typeset.formatter(function (text) {return text.length;});
-     var fed=f(input);
-      var words = input.split(/\s+/);
+     var nodes=f.justify(input);
+     var breaks = Typeset.linebreak(nodes, [width], {tolerance: 2})
+     var words = input.split(/\s+/);
       var id = 0;
       while (id<words.length){
            while (id+1<words.length && words[id].length + words[id+1].length + 1 < width) {
