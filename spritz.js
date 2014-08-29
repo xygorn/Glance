@@ -95,7 +95,6 @@ function spritzify(input){
 
     
     var width = parseInt(document.getElementById("width_selector").value, 10);
-    var height = parseInt(document.getElementById("height_selector").value, 10);
     var wpm = parseInt(document.getElementById("spritz_selector").value, 10);
     var ms_per_word = 60000/wpm;
 
@@ -126,25 +125,6 @@ function spritzify(input){
             temp_words[t] = all_words[i].replace('.', '&#8226;');
         }
         
-
-        // Double up on long words and words with commas.
-        if((all_words[i].indexOf(',') != -1 || all_words[i].indexOf(':') != -1 || all_words[i].indexOf('-') != -1 || all_words[i].indexOf('(') != -1|| all_words[i].length > 8) && all_words[i].indexOf('.') == -1){
-            temp_words.splice(t+1, 0, all_words[i]);
-            temp_words.splice(t+1, 0, all_words[i]);
-            t++;
-            t++;
-        }
-
-        // Add an additional space after punctuation.
-        if(all_words[i].indexOf('.') != -1 || all_words[i].indexOf('!') != -1 || all_words[i].indexOf('?') != -1 || all_words[i].indexOf(':') != -1 || all_words[i].indexOf(';') != -1|| all_words[i].indexOf(')') != -1){
-            temp_words.splice(t+1, 0, " ");
-            temp_words.splice(t+1, 0, " ");
-            temp_words.splice(t+1, 0, " ");
-            t++;
-            t++;
-            t++;
-        }
-
         t++;
 
     }
@@ -165,7 +145,13 @@ function spritzify(input){
 
     function updateValues(i) {
 
+        var height = parseInt(document.getElementById("height_selector").value, 10);
         var p = pivot(all_words[i]);
+        for (var j = 1; j<height; j++){
+             if (i+j<all_words.length){
+                 p=p+'<br/>'+pivot(all_words[i+j]) 
+             }
+        }
         document.getElementById("spritz_result").innerHTML = p;
         currentWord = i;
 
