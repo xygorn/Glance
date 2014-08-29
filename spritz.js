@@ -94,6 +94,7 @@ function parse(input,width,height){
 function spritzify(input){
 
     
+    var height = parseInt(document.getElementById("height_selector").value, 10);
     var width = parseInt(document.getElementById("width_selector").value, 10);
     var wpm = parseInt(document.getElementById("spritz_selector").value, 10);
     var ms_per_word = 60000/wpm;
